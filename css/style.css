@@ -181,6 +181,7 @@ span:nth-child(2) {
 }
 
 .book:hover.expand {
+    user-select: none;
     color: var(--white-clr);
     cursor: pointer;
 
