@@ -1,4 +1,6 @@
 const book = document.querySelectorAll(".book");
+
+function openModal(el) {}
 book.forEach((book) => {
-	book.addEventListener("mouseover", () => {});
+	book.addEventListener("click", openModal());
 });
