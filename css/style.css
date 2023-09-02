@@ -14,31 +14,32 @@ body {
 .container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 0.5fr repeat(4, 1fr);
-    grid-template-areas: "nv nv nv nv nv nv nv"
-        "cnt cnt cnt cnt cnt cnt cnt";
+    grid-template-rows: 0.1fr minmax(20rem, 1fr);
+    grid-template-areas: "nv"
+        "cn";
 }
 
 nav {
     display: flex;
-    padding: .6rem;
+    padding: 1em;
     gap: 1rem;
-    align-items: center;
+    align-content: center;
     justify-content: space-around;
     background-color: var(--white-clr);
     grid-area: nv;
+    flex-wrap: wrap;
+    align-items: center;
+    /* Added */
 }
 
 nav .title {
     color: var(--action-clr);
     text-align: center;
     line-height: 1.9ch;
-    border-right: var(--action-clr) solid 3px;
-    padding-right: .6rem;
+    white-space: nowrap;
 }
 
-.action:hover {
+button:hover {
     background-color: var(--bg-clr);
 
 }
@@ -48,9 +49,9 @@ nav>input:focus {
 }
 
 nav>input {
-    flex-grow: .3;
-    max-height: 2rem;
-    color: var(--action-clr)
+    flex-grow: .4;
+    color: var(--action-clr);
+    align-self: flex-end;
 }
 
 nav>input::selection {
@@ -68,7 +69,7 @@ nav>input::selection {
     border: none;
 }
 
-.action {
+button {
     grid-column-start: 7;
     justify-self: center;
     color: var(--white-clr);
@@ -84,4 +85,111 @@ nav>input::selection {
 
 .title p {
     font-weight: 100;
+}
+
+.book {
+    color: var(--action-clr);
+    max-width: 38rem;
+    display: flex;
+    gap: 2ch;
+    background-color: var(--white-clr);
+    transition: all ease-in-out 150ms;
+    -webkit-transition: all ease-in-out 150ms;
+    -moz-transition: all ease-in-out 150ms;
+    -ms-transition: all ease-in-out 150ms;
+    -o-transition: all ease-in-out 150ms;
+    position: relative;
+}
+
+.book:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.book>img {
+    width: 5rem;
+    height: auto;
+    border-radius: .6rem;
+    -webkit-border-radius: .6rem;
+    -moz-border-radius: .6rem;
+    -ms-border-radius: .6rem;
+    -o-border-radius: .6rem;
+}
+
+article {
+    overflow-x: hidden;
+    padding: 2.2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-auto-rows: 9rem;
+    gap: 1rem;
+    grid-area: cn;
+}
+
+h1 {
+    max-width: 40ch;
+    text-align: center;
+    transform: scale(0.94);
+    animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    -webkit-animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+}
+
+span:nth-child(1) {
+    animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+span:nth-child(2) {
+    animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    -webkit-animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@media screen and (max-width:500px) {
+    nav>input {
+        order: 3;
+        flex: 1;
+    }
+
+    article {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+}
+
+.book:hover.expand {
+    color: var(--white-clr);
+    cursor: pointer;
+
+}
+
+.book:hover.expand::after {
+    position: absolute;
+    left: 40%;
+    top: 38%;
+    content: "Click to expand";
+    color: var(--action-clr)
 }
