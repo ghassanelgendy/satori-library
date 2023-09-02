@@ -63,10 +63,18 @@
 			</nav>
 			<article class="books">
 				<div class="modal">
-					<form action="post">
+					<form id="addBook" action="post">
 						<h2>Add a new book</h2>
-						<input class="curve-proto" type="text" placeholder="Title" />
-						<input class="curve-proto" type="text" placeholder="Author" />
+						<input
+							class="curve-proto"
+							max="100"
+							type="text"
+							placeholder="Title" />
+						<input
+							class="curve-proto"
+							max="100"
+							type="text"
+							placeholder="Author" />
 						<input
 							class="curve-proto"
 							type="number"

@@ -184,24 +184,50 @@ span:nth-child(2) {
     -webkit-animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
+
+
 .modal {
     display: none;
+    opacity: 0;
+    transition: all ease-in 200ms;
     position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
     z-index: 99;
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, .9);
+    -webkit-transition: all ease-in 200ms;
+    -moz-transition: all ease-in 200ms;
+    -ms-transition: all ease-in 200ms;
+    -o-transition: all ease-in 200ms;
+
 }
 
+.visible {
+    z-index: 4;
+    opacity: 1;
+    display: flex;
+
+}
+
+form>h2 {
+    color: var(--action-clr);
+}
+
+form>* {
+    height: 3.3rem;
+}
+
+
 form {
+    justify-content: center;
+    text-align: center;
     background-color: var(--white-clr);
-    gap: .8rem;
-    padding: .7rem;
+    gap: 1rem;
+    padding: 2rem;
     border-radius: .7rem;
     display: flex;
     flex-direction: column;
