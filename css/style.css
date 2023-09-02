@@ -55,7 +55,7 @@ nav>input {
 
 nav>input::selection {
     background-color: var(--light-action-clr);
-    color: var(--white-clr)
+    color: var(--bg-clr)
 }
 
 .curve-proto {
