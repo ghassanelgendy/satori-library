@@ -1,9 +1,9 @@
 :root {
-    --bg-clr: #1E1E1E;
-    --action-clr: #473BF0;
-    --white-clr: #ACADBC;
-    --gray-clr: #9B9ECE;
-    --light-action-clr: #6665DD;
+    --bg-clr: #312b21;
+    --action-clr: #894e1d;
+    --white-clr: #e1d2b8;
+    --gray-clr: #9b775d;
+    --light-action-clr: #dba084;
 }
 
 body {
@@ -14,17 +14,18 @@ body {
 .container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 0.5fr repeat(4, 1fr);
-    grid-template-areas: "nv nv nv nv nv nv"
-        "cnt cnt cnt cnt cnt cnt";
+    grid-template-areas: "nv nv nv nv nv nv nv"
+        "cnt cnt cnt cnt cnt cnt cnt";
 }
 
 nav {
-    display: grid;
-    grid-template-columns: 5fr 1fr;
+    display: flex;
+    padding: .6rem;
+    gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: var(--white-clr);
     grid-area: nv;
 }
@@ -33,18 +34,54 @@ nav .title {
     color: var(--action-clr);
     text-align: center;
     line-height: 1.9ch;
+    border-right: var(--action-clr) solid 3px;
+    padding-right: .6rem;
 }
 
-.action {
+.action:hover {
+    background-color: var(--bg-clr);
+
+}
+
+nav>input:focus {
+    outline: none;
+}
+
+nav>input {
+    flex-grow: .3;
+    max-height: 2rem;
+    color: var(--action-clr)
+}
+
+nav>input::selection {
+    background-color: var(--light-action-clr);
+    color: var(--white-clr)
+}
+
+.curve-proto {
     padding: .5rem 1rem;
-    justify-self: center;
-    color: var(--white-clr);
-    cursor: pointer;
-    background-color: var(--action-clr);
-    border: none;
     border-radius: .7em;
     -webkit-border-radius: .7em;
     -moz-border-radius: .7em;
     -ms-border-radius: .7em;
     -o-border-radius: .7em;
+    border: none;
+}
+
+.action {
+    grid-column-start: 7;
+    justify-self: center;
+    color: var(--white-clr);
+    cursor: pointer;
+    background-color: var(--action-clr);
+    border: none;
+    transition: all ease-in 100ms;
+    -webkit-transition: all ease-in 100ms;
+    -moz-transition: all ease-in 100ms;
+    -ms-transition: all ease-in 100ms;
+    -o-transition: all ease-in 100ms;
+}
+
+.title p {
+    font-weight: 100;
 }
