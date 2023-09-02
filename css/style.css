@@ -1,0 +1,48 @@
+:root {
+    --bg-clr: #1E1E1E;
+    --action-clr: #473BF0;
+    --white-clr: #ACADBC;
+}
+
+body {
+    background-color: #1E1E1E;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 0.5fr repeat(4, 1fr);
+    grid-template-areas: "nv nv nv nv nv nv"
+        "cnt cnt cnt cnt cnt cnt";
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white-clr);
+    grid-area: nv;
+}
+
+nav .title {
+    color: var(--action-clr);
+    text-align: center;
+    line-height: 1.9ch;
+}
+
+.action {
+    padding: .5rem 1rem;
+    justify-self: center;
+    color: var(--white-clr);
+    cursor: pointer;
+    background-color: var(--action-clr);
+    border: none;
+    border-radius: .7em;
+    -webkit-border-radius: .7em;
+    -moz-border-radius: .7em;
+    -ms-border-radius: .7em;
+    -o-border-radius: .7em;
+}
