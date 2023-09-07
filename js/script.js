@@ -1,6 +1,7 @@
 const book = document.querySelectorAll(".book");
 const addBookModalBtn = document.querySelector(".add");
 const addBookModal = document.querySelector(".modal");
+const addBookBtn = document.getElementById("addBookBtn");
 addBookModalBtn.addEventListener("click", () => {
 	console.log("wee");
 	addBookModal.classList.add("visible");
