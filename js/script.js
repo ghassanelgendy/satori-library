@@ -7,7 +7,14 @@ addBookModalBtn.addEventListener("click", () => {
 });
 const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
-
+const theLibrary = [];
+function Book() {
+	title;
+	author;
+	pages;
+	isRead = false;
+}
+function addBookToLibrary(title, author, pages, isRead) {}
 document.addEventListener("keydown", (e) => {
 	if (e.key === "Escape") {
 		addBookModal.classList.remove("visible");
