@@ -14,7 +14,7 @@ body {
 .container {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 0.1fr minmax(20rem, 1fr);
+    grid-template-rows: minmax(75px, 0.1fr) minmax(20rem, 1fr);
     grid-template-areas: "nv"
         "cn";
 }
