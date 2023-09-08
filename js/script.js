@@ -1,4 +1,4 @@
-const book = document.querySelectorAll(".book");
+const HTMLlibrary = document.getElementById("library");
 const addBookModalBtn = document.querySelector(".add");
 const addBookModal = document.querySelector(".modal");
 const addBookBtn = document.getElementById("addBookBtn");
@@ -36,17 +36,42 @@ document.addEventListener("keydown", (e) => {
 });
 
 //Constructor for "Book"
-function Book() {
-	title;
-	author;
-	pages;
-	isRead = false;
+function Book(title, author, pages) {
+	this.title = title;
+	this.author = author;
+	this.pages = pages;
 }
 
 //Add a new Book object to theLibrary Array
-function addBookToLibrary(title, author, pages, isRead) {}
+function addBookToLibrary() {
+	let title = document.getElementById("title").value;
+	let author = document.getElementById("author").value;
+	let pages = document.getElementById("pages").value;
+	const newBook = new Book(title, author, pages);
+	theLibrary.push(newBook);
+	let HTMLbook = HTMLlibrary.appendChild(document.createElement("div"));
+	HTMLbook.classList.add("book", "curve-proto", "expand");
+	let cover = document.createElement("img");
+	cover.src = "./img/book-img.png";
+	HTMLbook.appendChild(cover);
+	let HTMLdetails = HTMLbook.appendChild(document.createElement("div"));
+	HTMLdetails.classList.add("details");
+	let h3 = document.createElement("h3");
+	h3.textContent = `By ${author}`;
+	let h2 = document.createElement("h2");
+	h2.textContent = title;
+	let p = document.createElement("p");
+	p.textContent = `pages: ${pages}`;
+
+	HTMLdetails.appendChild(h2);
+	HTMLdetails.appendChild(h3);
+	HTMLdetails.appendChild(p);
+
+	console.log(theLibrary);
+}
 
 //Disable default submitting action for the "submit button"
 addBookBtn.addEventListener("click", (e) => {
 	e.preventDefault();
+	addBookToLibrary();
 });

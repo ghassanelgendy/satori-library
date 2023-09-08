@@ -61,7 +61,7 @@
 					<button class="add curve-proto">&plus; Add Book</button>
 				</div>
 			</nav>
-			<article class="books">
+			<article id="library" class="books">
 				<div class="modal">
 					<form id="addBook" action="post">
 						<h2>Add a new book</h2>
@@ -69,10 +69,12 @@
 							class="curve-proto"
 							max="100"
 							type="text"
+							id="title"
 							placeholder="Title" />
 						<input
 							class="curve-proto"
 							max="100"
+							id="author"
 							type="text"
 							placeholder="Author" />
 						<input
