@@ -261,8 +261,8 @@ span:nth-child(2) {
 
 .modify-overlay {
     padding: 0;
-    min-width: 95%;
-    min-height: 90%;
+    min-width: 100%;
+    min-height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -279,6 +279,14 @@ span:nth-child(2) {
 
 .book>.modify-overlay:hover {
     opacity: 1;
+}
+
+.status {
+    border-radius: 10rem;
+    min-height: 10px;
+    min-width: 5px;
+    background-color: darkred;
+
 }
 
 form>* {

@@ -4,7 +4,7 @@ const addBookModal = document.querySelector(".modal");
 const addBookBtn = document.getElementById("addBookBtn");
 const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
-const theLibrary = [];
+let theLibrary = [];
 
 //Load the "add button" modal
 addBookModalBtn.addEventListener("click", () => {
@@ -40,6 +40,7 @@ function Book(title, author, pages) {
 	this.title = title;
 	this.author = author;
 	this.pages = pages;
+	this.isRead = false;
 }
 
 //Add a new Book object to theLibrary Array
@@ -50,10 +51,13 @@ function addBookToLibrary() {
 	const newBook = new Book(title, author, pages);
 	theLibrary.push(newBook);
 	let HTMLbook = HTMLlibrary.appendChild(document.createElement("div"));
-	HTMLbook.classList.add("book", "curve-proto", "expand");
-	HTMLbook.data = newBook;
+	HTMLbook.classList.add("book", "curve-proto", "expand", "read");
+	HTMLbook.dataset.index = theLibrary.length;
+	let bookStatus = document.createElement("span");
+	bookStatus.classList.add("status");
 	let cover = document.createElement("img");
 	cover.src = "./img/book-img.png";
+	HTMLbook.appendChild(bookStatus);
 	HTMLbook.appendChild(cover);
 	let HTMLdetails = HTMLbook.appendChild(document.createElement("div"));
 	HTMLdetails.classList.add("details");
@@ -78,8 +82,28 @@ function addBookToLibrary() {
 	HTMLdetails.appendChild(p);
 	HTMLbook.appendChild(modify);
 	console.log(theLibrary);
-	let deleteBtns = document.querySelectorAll(".delete");
-	let markAsBtns = document.querySelectorAll(".markAs");
+	deleteButton.addEventListener("click", (e) => {
+		removeBook(HTMLbook);
+		console.log(theLibrary);
+	});
+	markAsButton.addEventListener("click", (e) => {
+		if (!newBook.isRead) {
+			newBook.isRead = true;
+			markAsButton.textContent = "Mark as unread";
+			bookStatus.style.backgroundColor = "darkgreen";
+		} else {
+			newBook.isRead = false;
+			markAsButton.textContent = "Mark as read";
+			bookStatus.style.backgroundColor = "darkred";
+		}
+		console.log(newBook);
+	});
+}
+function removeBook(book) {
+	console.log(book);
+	console.log(book.dataset.index);
+	book.style.display = "none";
+	theLibrary.splice(book.index, 1);
 }
 
 //Disable default submitting action for the "submit button"
