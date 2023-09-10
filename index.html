@@ -51,9 +51,8 @@
 		<div class="container">
 			<nav>
 				<div class="title">
-					<a href="#">
-						<h1><span>Satori </span><span>悟り</span></h1>
-					</a>
+					<h1><span>Satori </span><span>悟り</span></h1>
+
 					<p><span>Library</span></p>
 				</div>
 				<input
@@ -62,10 +61,15 @@
 					class="search-bar curve-proto" />
 				<div class="btns">
 					<button class="action curve-proto">Register</button>
-					<button class="add curve-proto">&plus; Add Book</button>
+					<button id="btnbook" class="add curve-proto">&plus; Add Book</button>
 				</div>
 			</nav>
 			<article id="library" class="books">
+				<div class="firstLoad">
+					<h2 style>
+						Start adding books by clicking <a id="clickLink" href="">here</a>
+					</h2>
+				</div>
 				<div class="modal">
 					<form id="addBook" action="post">
 						<div class="modal-info">

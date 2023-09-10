@@ -4,7 +4,14 @@ const addBookModal = document.querySelector(".modal");
 const addBookBtn = document.getElementById("addBookBtn");
 const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
+const hereLink = document.getElementById("clickLink");
 let theLibrary = [];
+//Load the "add button" modal
+hereLink.addEventListener("click", (e) => {
+	console.log("wee");
+	e.preventDefault();
+	addBookModal.classList.add("visible");
+});
 
 //Load the "add button" modal
 addBookModalBtn.addEventListener("click", () => {
@@ -45,6 +52,8 @@ function Book(title, author, pages) {
 
 //Add a new Book object to theLibrary Array
 function addBookToLibrary() {
+	const firstTime = document.querySelector(".firstLoad");
+	firstTime.style.display = "none";
 	let title = document.getElementById("title").value;
 	let author = document.getElementById("author").value;
 	let pages = document.getElementById("pages").value;

@@ -137,15 +137,25 @@ button {
     -o-border-radius: .6rem;
 }
 
+.firstLoad {
+    display: flex;
+    justify-content: center;
+}
+
 article {
     overflow-x: hidden;
-
     padding: 2.2em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-auto-rows: 9rem;
     gap: 1rem;
     grid-area: cn;
+}
+
+h2,
+a,
+a:link {
+    color: var(--white-clr);
 }
 
 h1,
@@ -287,6 +297,7 @@ span:nth-child(2) {
     min-height: 10px;
     min-width: 5px;
     background-color: darkred;
+
 
 }
 
