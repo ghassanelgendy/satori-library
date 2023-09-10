@@ -5,8 +5,6 @@ const addBookBtn = document.getElementById("addBookBtn");
 const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
 const theLibrary = [];
-const deleteBtn = document.getElementById("delete");
-const markAsBtn = document.getElementById("markAs");
 
 //Load the "add button" modal
 addBookModalBtn.addEventListener("click", () => {
@@ -53,6 +51,7 @@ function addBookToLibrary() {
 	theLibrary.push(newBook);
 	let HTMLbook = HTMLlibrary.appendChild(document.createElement("div"));
 	HTMLbook.classList.add("book", "curve-proto", "expand");
+	HTMLbook.data = newBook;
 	let cover = document.createElement("img");
 	cover.src = "./img/book-img.png";
 	HTMLbook.appendChild(cover);
@@ -68,10 +67,10 @@ function addBookToLibrary() {
 	modify.classList.add("modify-overlay", "curve-proto");
 	let deleteButton = document.createElement("button");
 	let markAsButton = document.createElement("button");
-	deleteButton.classList.add("curve-proto");
+	deleteButton.classList.add("curve-proto", "delete");
 	deleteButton.textContent = "Delete";
 	markAsButton.textContent = "Mark as read";
-	markAsButton.classList.add("curve-proto");
+	markAsButton.classList.add("curve-proto", "markAs");
 	modify.appendChild(markAsButton);
 	modify.appendChild(deleteButton);
 	HTMLdetails.appendChild(h2);
@@ -79,7 +78,10 @@ function addBookToLibrary() {
 	HTMLdetails.appendChild(p);
 	HTMLbook.appendChild(modify);
 	console.log(theLibrary);
+	let deleteBtns = document.querySelectorAll(".delete");
+	let markAsBtns = document.querySelectorAll(".markAs");
 }
+
 //Disable default submitting action for the "submit button"
 addBookBtn.addEventListener("click", (e) => {
 	e.preventDefault();
