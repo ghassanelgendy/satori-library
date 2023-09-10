@@ -5,6 +5,8 @@ const addBookBtn = document.getElementById("addBookBtn");
 const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
 const theLibrary = [];
+const deleteBtn = document.getElementById("delete");
+const markAsBtn = document.getElementById("markAs");
 
 //Load the "add button" modal
 addBookModalBtn.addEventListener("click", () => {
@@ -62,16 +64,34 @@ function addBookToLibrary() {
 	h2.textContent = title;
 	let p = document.createElement("p");
 	p.textContent = `pages: ${pages}`;
-
+	let modify = document.createElement("div");
+	modify.classList.add("modify-overlay", "curve-proto");
+	let deleteButton = document.createElement("button");
+	let markAsButton = document.createElement("button");
+	deleteButton.classList.add("curve-proto");
+	deleteButton.textContent = "Delete";
+	markAsButton.textContent = "Mark as read";
+	markAsButton.classList.add("curve-proto");
+	modify.appendChild(markAsButton);
+	modify.appendChild(deleteButton);
 	HTMLdetails.appendChild(h2);
 	HTMLdetails.appendChild(h3);
 	HTMLdetails.appendChild(p);
-
+	HTMLbook.appendChild(modify);
 	console.log(theLibrary);
 }
-
 //Disable default submitting action for the "submit button"
 addBookBtn.addEventListener("click", (e) => {
 	e.preventDefault();
 	addBookToLibrary();
+	clearForm();
+	addBookModal.classList.remove("visible");
 });
+
+//Function to clear the form
+function clearForm() {
+	const formInputs = document.querySelectorAll("input");
+	formInputs.forEach((input) => {
+		input.value = "";
+	});
+}

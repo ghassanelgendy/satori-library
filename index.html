@@ -64,14 +64,19 @@
 			<article id="library" class="books">
 				<div class="modal">
 					<form id="addBook" action="post">
-						<h2>Add a new book</h2>
+						<div class="modal-info">
+							<h2>Add a new book</h2>
+							<p class="exit-instructions"></p>
+						</div>
 						<input
 							class="curve-proto"
+							min="1"
 							max="100"
 							type="text"
 							id="title"
 							placeholder="Title" />
 						<input
+							min="1"
 							class="curve-proto"
 							max="100"
 							id="author"
@@ -84,6 +89,7 @@
 							name="Pages"
 							min="0"
 							id="pages" />
+
 						<button id="addBookBtn" class="curve-proto">Submit</button>
 					</form>
 				</div>
@@ -93,6 +99,10 @@
 						<h2>Atomic Habits</h2>
 						<h3>By James Clear</h3>
 						<p>Pages: 500</p>
+					</div>
+					<div class="modify-overlay curve-proto">
+						<button class="curve-proto" id="markAs">Mark as read</button>
+						<button class="curve-proto" id="delete">Delete</button>
 					</div>
 				</div>
 			</article>

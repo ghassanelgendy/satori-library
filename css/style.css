@@ -213,14 +213,65 @@ span:nth-child(2) {
 
 }
 
-form>h2 {
+.modal-info>h2 {
     color: var(--action-clr);
+}
+
+.modify-overlay>* {
+    width: 100%;
+    margin: 0;
+}
+
+.modify-overlay>:first-child:hover {
+    background-color: darkgreen;
+
+}
+
+.modify-overlay>:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.modify-overlay>:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.modify-overlay>:last-child:hover {
+    background-color: darkred;
+
+}
+
+.modify-overlay {
+    padding: 0;
+    min-width: 95%;
+    min-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: var(--action-clr);
+    opacity: 0;
+    transition: all ease-in 150ms;
+    -webkit-transition: all ease-in 150ms;
+    -moz-transition: all ease-in 150ms;
+    -ms-transition: all ease-in 150ms;
+    -o-transition: all ease-in 150ms;
+}
+
+.book>.modify-overlay:hover {
+    opacity: 1;
 }
 
 form>* {
     height: 3.3rem;
 }
 
+.exit-instructions::after {
+    content: "Press esc to cancel";
+    color: var(--gray-clr);
+}
 
 form {
     justify-content: center;
@@ -243,6 +294,14 @@ form {
         flex: 1;
     }
 
+    .container {
+        grid-template-rows: .2fr minmax(20rem, 1fr);
+    }
+
+    .exit-instructions::after {
+        content: "Click anywhere to cancel";
+    }
+
     article {
         justify-content: center;
     }
@@ -250,19 +309,4 @@ form {
     nav {
         justify-content: center;
     }
-}
-
-.book:hover.expand {
-    user-select: none;
-    color: var(--white-clr);
-    cursor: pointer;
-
-}
-
-.book:hover.expand::after {
-    position: absolute;
-    left: 40%;
-    top: 38%;
-    content: "Click to mark as read";
-    color: var(--action-clr)
 }
