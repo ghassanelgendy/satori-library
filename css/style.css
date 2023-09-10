@@ -152,7 +152,7 @@ article {
     grid-area: cn;
 }
 
-h2,
+.firstLoad>h2,
 a,
 a:link {
     color: var(--white-clr);
