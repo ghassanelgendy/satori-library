@@ -6,14 +6,14 @@ const modal = document.querySelector(".modal");
 const except = document.querySelector("form");
 const hereLink = document.getElementById("clickLink");
 let theLibrary = [];
-//Load the "add button" modal
+//Load the "add book" modal from first load link
 hereLink.addEventListener("click", (e) => {
 	console.log("wee");
 	e.preventDefault();
 	addBookModal.classList.add("visible");
 });
 
-//Load the "add button" modal
+//Load the "add book" modal from button
 addBookModalBtn.addEventListener("click", () => {
 	console.log("wee");
 	addBookModal.classList.add("visible");
@@ -49,16 +49,18 @@ function Book(title, author, pages) {
 	this.pages = pages;
 	this.isRead = false;
 }
-
-//Add a new Book object to theLibrary Array
-function addBookToLibrary() {
+function removeAddBookPrompt() {
 	const firstTime = document.querySelector(".firstLoad");
 	firstTime.style.display = "none";
+}
+//Add a new Book object to theLibrary Array
+function addBookToLibrary() {
 	let title = document.getElementById("title").value;
 	let author = document.getElementById("author").value;
 	let pages = document.getElementById("pages").value;
-	const newBook = new Book(title, author, pages);
-	theLibrary.push(newBook);
+	removeAddBookPrompt();
+	const book = new Book(title, author, pages);
+	theLibrary.push(book);
 	let HTMLbook = HTMLlibrary.appendChild(document.createElement("div"));
 	HTMLbook.classList.add("book", "curve-proto", "expand", "read");
 	HTMLbook.dataset.index = theLibrary.length;
@@ -90,24 +92,24 @@ function addBookToLibrary() {
 	HTMLdetails.appendChild(h3);
 	HTMLdetails.appendChild(p);
 	HTMLbook.appendChild(modify);
-	console.log(theLibrary);
+	//delete button
 	deleteButton.addEventListener("click", (e) => {
 		removeBook(HTMLbook);
-		console.log(theLibrary);
 	});
+	//Mark as read/unread
 	markAsButton.addEventListener("click", (e) => {
-		if (!newBook.isRead) {
-			newBook.isRead = true;
+		if (!book.isRead) {
+			book.isRead = true;
 			markAsButton.textContent = "Mark as unread";
 			bookStatus.style.backgroundColor = "darkgreen";
 		} else {
-			newBook.isRead = false;
+			book.isRead = false;
 			markAsButton.textContent = "Mark as read";
 			bookStatus.style.backgroundColor = "darkred";
 		}
-		console.log(newBook);
 	});
 }
+//function to remove book from array and DOM
 function removeBook(book) {
 	console.log(book);
 	console.log(book.dataset.index);
