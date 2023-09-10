@@ -65,7 +65,7 @@ function addBookToLibrary() {
 	let bookStatus = document.createElement("span");
 	bookStatus.classList.add("status");
 	let cover = document.createElement("img");
-	cover.src = "./img/book-img.png";
+	cover.src = "./images/book-img.png";
 	HTMLbook.appendChild(bookStatus);
 	HTMLbook.appendChild(cover);
 	let HTMLdetails = HTMLbook.appendChild(document.createElement("div"));
