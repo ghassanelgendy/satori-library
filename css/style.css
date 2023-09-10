@@ -149,7 +149,8 @@ article {
 }
 
 h1,
-a {
+a,
+a:link {
     max-width: 40ch;
     text-align: center;
     transform: scale(0.94);
