@@ -158,6 +158,10 @@ a:link {
     color: var(--white-clr);
 }
 
+a:visited {
+    color: var(--action-clr);
+}
+
 h1,
 a,
 a:link {
@@ -168,9 +172,6 @@ a:link {
     -webkit-animation: scale 1s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
 
-a:visited {
-    color: var(--action-clr);
-}
 
 footer {
     background-color: var(--white-clr);
